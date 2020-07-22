@@ -1,2 +1,2 @@
 # WebRTC
-Web Remote Terminal Connection using NodeJS
+Web Real Time Communications using NodeJS
