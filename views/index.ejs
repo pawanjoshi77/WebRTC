@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>My WebRTC</title>
+</head>
+
+<body>
+    <video autoplay></video>
+    <!-- script for getting user media for video and mic-->
+    <script>
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        var constraints = {
+            audio: true,
+            video: true
+        };
+
+        var videoArea = document.querySelector("video");
+
+        navigator.getUserMedia(constraints, onSuccess, onError);
+
+        function onSuccess(stream) {
+            console.log("Success! We have a stream");
+            videoArea.src = window.URL.createObjectURL(stream);
+            videoArea.play();
+        }
+
+        function onError(error) {
+            console.log("Error with GetUserMedia: ", error)
+        }
+    </script>
+</body>
+
+</html>
